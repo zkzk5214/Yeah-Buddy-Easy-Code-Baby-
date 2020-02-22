@@ -6,16 +6,15 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        for num_one in nums:
+        for num in nums:
             # Determine if (target - num_one) is in our nums list
             # These two numbers are different
-            if target - num_one in nums and num_one is not target - num_one:
+            if target - num in nums and num is not target - num:
                 # nums.index(4) = 0, nums.index(3) = 1
-                return [nums.index(num_one), nums.index(target - num_one)]
+                return [nums.index(num), nums.index(target - num)]
 
 
 nums = [4, 3, 5, 15]
 target = 7
 s = Solution()
 print(s.twoSum(nums, target))
-
