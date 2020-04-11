@@ -12,28 +12,22 @@ def ThreeSum1(nums):
             elif s > 0:
                 r -= 1
             else:
-                res.append((nums[i], nums[l], nums[r]))
+                res = (i, l, r)
                 while l < r and nums[l] == nums[l + 1]:  # skip over same valued elements
                     l += 1
                 while l < r and nums[r] == nums[r - 1]:  # skip over same valued elements
                     r -= 1
                 l += 1
                 r -= 1
+
+    if not res:
+        return -1
+
     return res
 
 
-def ThreeSum2(A, sum):
-    A.sort()
-    # Now fix the first element one by one and find the other two elements
-    for i in range(0, len(A) - 2):
-        # Start two index variables from two corners of the array and move them toward each other
-        # index of the first and last element in the remaining elements
-        l, r = i + 1, len(A) - 1
-        while l < r:
-            if A[i] + A[l] + A[r] == sum:
-                return print("Triplet is", A[i], ', ', A[l], ', ', A[r])
-            elif A[i] + A[l] + A[r] < sum:
-                l += 1
-            else:  # A[i] + A[l] + A[r] > sum
-                r -= 1
-    return False
+if __name__ == "__main__":
+    with open('rosalind_3sum.txt', 'r') as f:
+        for i in f.readlines():
+            input_list = list(map(int, i.split()))
+            s = ThreeSum1(input_list)
