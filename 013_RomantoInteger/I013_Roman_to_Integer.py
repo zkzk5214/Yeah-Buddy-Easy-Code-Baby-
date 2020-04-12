@@ -1,4 +1,4 @@
-def getNum(x):      # Use to take the corresponding value
+def getNum(x):  # Use to take the corresponding value
     return {
         'I': 1,
         'V': 5,
@@ -11,7 +11,25 @@ def getNum(x):      # Use to take the corresponding value
 
 
 class Solution:
-    def romanToint(self, s):
+    def romanToint1(self, s):
+        Num = {
+            'M': 1000,
+            'D': 500,
+            'C': 100,
+            'L': 50,
+            'X': 10,
+            'V': 5,
+            'I': 1
+        }
+        number = 0
+        s = s.replace("IV", "IIII").replace("IX", "VIIII")
+        s = s.replace("XL", "XXXX").replace("XC", "LXXXX")
+        s = s.replace("CD", "CCCC").replace("CM", "DCCCC")
+        for char in s:
+            number += Num[char]
+        return number
+
+    def romanToint2(self, s):
         """
         :param s: str
         :return: int
@@ -35,9 +53,10 @@ class Solution:
         return result
 
 
-s = Solution()
-string = s.romanToint("MCMXCIV")
-print(string)
+if __name__ == "__main__":
+    s = Solution()
+    string = s.romanToint1("MCMXCIV")
+    print(string)
 
-v = getNum("V")
-print(v)
+    # v = getNum("V")
+    # print(v)
