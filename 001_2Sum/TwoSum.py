@@ -20,18 +20,18 @@ class Solution(object):
         :return: List[int]
         """
         # Create a dict
-        lookup = {}
+        lookup = {}  # {num:index}
 
         # For counter and value in nums
-        for i, num in enumerate(nums):
+        for index, num in enumerate(nums):
 
             # If num2 = target - num1 already in the lookup dict
             # return the index1 and index2
             if target - num in lookup:
-                return [lookup[target - num], i]
+                return [lookup[target - num], index]
 
             # If not, put num with index in lookup
-            lookup[num] = i
+            lookup[num] = index
         # Return again
         return []
 
