@@ -1,7 +1,7 @@
 def BinarySearch(array, key):
     left = 0
     right = len(array) - 1
-    while True:
+    while left<=right:
         mid = int((left + right) / 2)
         if array[mid] > key:
             right = mid - 1
@@ -9,6 +9,7 @@ def BinarySearch(array, key):
             left = mid + 1
         elif array[mid] == key:
             return mid
+    return -1
 
 
 if __name__ == '__main__':
